@@ -1,0 +1,27 @@
+cabal-version:      3.0
+name:               C0-MIPS-Compiler
+version:            0.1.0.0
+synopsis:           barebones C0 to MIPS compiler
+-- description:
+license:            BSD-3-Clause
+license-file:       LICENSE
+author:             JGOPN
+maintainer:         joaogui.opn@gmail.com
+-- copyright:
+category:           Development
+build-type:         Simple
+--extra-doc-files:    CHANGELOG.md
+-- extra-source-files:
+
+common warnings
+    --ghc-options: -Wall
+
+executable C0-MIPS-Compiler
+    import:           warnings
+    main-is:          Main.hs
+    other-modules:    Lexer, Parser, AST, TypeChecking, IntermediateCode, ICGenerator, AssemblyGenerator
+    -- other-extensions:
+    build-tool-depends:      alex:alex >= 3.2.1, happy:happy >= 1.19.5
+    build-depends:    base ^>=4.17.2.1, array, containers, mtl
+    hs-source-dirs:   app
+    default-language: Haskell2010
